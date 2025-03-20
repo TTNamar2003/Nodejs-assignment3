@@ -1,5 +1,5 @@
-const express = require("express");
-const dotenv = require("dotenv");
+import express from "express";
+import dotenv from "dotenv";
 dotenv.config();
 const studentRoutes = require("./routes/studentRoutes");
 
@@ -12,6 +12,6 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: "Something went wrong!" });
 });
 
-app.listen(process.env.PORT_SERVER || 5000, () =>
-  console.log(`Server running on port ${PORT}`)
+app.listen(process.env.PORT_SERVER, () =>
+  console.log(`Server running on port ${process.env.PORT_SERVER}`)
 );

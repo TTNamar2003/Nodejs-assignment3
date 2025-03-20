@@ -1,4 +1,4 @@
-const pool = require("../config/db");
+import pool from "../config/db";
 
 const addStudent = async (name, age, grade) => {
   try {
@@ -57,9 +57,4 @@ const deleteStudent = async (id) => {
   }
 };
 
-module.exports = {
-  addStudent,
-  getAllStudents,
-  updateStudentGrade,
-  deleteStudent,
-};
+export { addStudent, getAllStudents, updateStudentGrade, deleteStudent };
