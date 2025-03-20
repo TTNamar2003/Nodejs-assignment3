@@ -1,4 +1,4 @@
-import pool from "../config/db";
+import pool from "../config/db.js";
 
 const addStudent = async (name, age, grade) => {
   try {
@@ -57,4 +57,9 @@ const deleteStudent = async (id) => {
   }
 };
 
-export { addStudent, getAllStudents, updateStudentGrade, deleteStudent };
+export default {
+  addStudent,
+  getAllStudents,
+  updateStudentGrade,
+  deleteStudent,
+};

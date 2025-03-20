@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
+import studentRoutes from "./routes/studentRoutes.js";
 dotenv.config();
-const studentRoutes = require("./routes/studentRoutes");
 
 const app = express();
 app.use(express.json());

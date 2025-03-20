@@ -1,4 +1,4 @@
-import studentModel from "../models/studentModel";
+import studentModel from "../models/studentModel.js";
 
 const createStudent = async (req, res) => {
   try {
@@ -56,4 +56,4 @@ const deleteStudent = async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 };
-export { createStudent, getStudents, updateGrade, deleteStudent };
+export default { createStudent, getStudents, updateGrade, deleteStudent };
