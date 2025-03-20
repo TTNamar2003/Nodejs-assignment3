@@ -25,11 +25,15 @@ const updateGrade = async (req, res) => {
     const { grade } = req.body;
 
     if (!id || !grade) {
-      return res.status(400).json({ error: "Student ID and grade are required." });
+      return res
+        .status(400)
+        .json({ error: "Student ID and grade are required." });
     }
 
     const updatedStudent = await studentModel.updateStudentGrade(id, grade);
-    res.status(200).json({ message: "Grade updated successfully", student: updatedStudent });
+    res
+      .status(200)
+      .json({ message: "Grade updated successfully", student: updatedStudent });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -44,7 +48,10 @@ const deleteStudent = async (req, res) => {
     }
 
     const deletedStudent = await studentModel.deleteStudent(id);
-    res.status(200).json({ message: "Student deleted successfully", student: deletedStudent });
+    res.status(200).json({
+      message: "Student deleted successfully",
+      student: deletedStudent,
+    });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }

@@ -23,7 +23,9 @@ const testCRUD = async () => {
 
     const studentId = createRes.data.student.id;
     console.log("Updating student grade...");
-    const updateRes = await axios.put(`${API_URL}/${studentId}`, { grade: "B" });
+    const updateRes = await axios.put(`${API_URL}/${studentId}`, {
+      grade: "B",
+    });
     console.log("Updated Student:", updateRes.data);
 
     try {

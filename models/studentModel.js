@@ -2,7 +2,8 @@ const pool = require("../config/db");
 
 const addStudent = async (name, age, grade) => {
   try {
-    if (!name || !age || !grade) throw new Error("All fields (name, age, grade) are required.");
+    if (!name || !age || !grade)
+      throw new Error("All fields (name, age, grade) are required.");
     const result = await pool.query(
       "INSERT INTO students (name, age, grade) VALUES ($1, $2, $3) RETURNING *",
       [name, age, grade]
@@ -43,7 +44,10 @@ const deleteStudent = async (id) => {
   try {
     if (!id) throw new Error("Student ID is required.");
 
-    const result = await pool.query("DELETE FROM students WHERE id = $1 RETURNING *", [id]);
+    const result = await pool.query(
+      "DELETE FROM students WHERE id = $1 RETURNING *",
+      [id]
+    );
 
     if (result.rows.length === 0) throw new Error("Student not found.");
 
@@ -53,4 +57,9 @@ const deleteStudent = async (id) => {
   }
 };
 
-module.exports = { addStudent, getAllStudents, updateStudentGrade, deleteStudent };
+module.exports = {
+  addStudent,
+  getAllStudents,
+  updateStudentGrade,
+  deleteStudent,
+};
